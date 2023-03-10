@@ -1,0 +1,81 @@
+.main{
+    background-color: antiquewhite;
+}
+.logo{
+    font-size: 60px;
+    font-weight: bold;
+    color:rgb(249, 201, 46);
+}
+.logo:hover
+{
+    color:rgb(249, 201, 46);
+
+}
+.it
+{
+    color: darkgreen;
+}
+.delevery
+{
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.delevery1
+{
+    font-size: 20px;
+    font-weight:400px;
+
+}
+.cart{
+    font-size: 20px;
+    background-color: darkgreen;
+}
+.mycart
+{
+    
+    background-color: cadetblue;
+    /* height:90%; */
+}
+.carthover:hover
+{
+    /* background-color: rgb(201, 247, 205); */
+    box-shadow:  2px 2px 8px 6px rgb(100, 198, 113) ;
+}
+/* login page css */
+.green p{
+    color: dimgrey;
+}
+.green a
+{
+    color: green;
+}
+
+/* paan logo */
+.paan
+{
+    width: 100%;
+}
+.dairy
+{
+    border-radius: 25px;
+}
+
+/* show data cart  */
+.borderradious
+{
+    border-radius: 15px;
+    cursor: pointer;
+}
+.borderradious:hover
+{
+    border: 2px solid green;
+}
+/* overflow scroll */
+.overflow{ 
+    overflow-y: scroll;
+    height: 720px; 
+}
+/* .overflow::-webkit-scrollbar {
+    display: none;
+  } */
