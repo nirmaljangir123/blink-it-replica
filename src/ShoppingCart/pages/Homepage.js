@@ -49,7 +49,7 @@ const HomePage = () => {
                 <div className="container">
                     <div className="" style={{ display: "flex", flexWrap: 'wrap', justifyContent: "center" }}>
                         {catagiryOffer.map((item, key) => (
-                            <div className="borderbox m-3 rounded" >
+                            <div className="borderbox m-3 rounded" onClick={()=>nevigate("/catogery-data")}>
                                 <CatigeryProduct product={item} />
                             </div>
                         ))

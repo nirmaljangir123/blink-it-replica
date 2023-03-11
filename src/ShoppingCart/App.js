@@ -15,12 +15,15 @@ import Error from "./component/ErrorPage";
 import HomePage from "./pages/Homepage";
 import { ClickShowData } from "./pages/CardsClickData";
 import { ClickCategoryShowData } from "./pages/Catigeroy";
+import NavbarLogo from "./newcomponent/navbar/Navbarlogo";
+import OffcanvasCart from "./newcomponent/offcanvas/Offcanvas";
 const App=()=>{
     return(
         <>
           <BrowserRouter>
           {/* <HomePage/>  */}
-          <NavbarMain/>
+          {/* <NavbarMain/> */}
+          <NavbarLogo/>
         {/* <ClickCategoryShowData/> */}
           {/* <ClickShowData/> */}
           {/* <NavbarMain/>
@@ -44,6 +47,9 @@ const App=()=>{
            <Route index element={<><HomePage/></>} />
            <Route path="/" element={<><HomePage/></>}/>
            <Route path="/click-data" element={<><ClickShowData/></>}/>
+           <Route path="/catogery-data" element={<><ClickCategoryShowData/></>}/>
+           <Route path="/offcanvas-cart" element={<><OffcanvasCart/></>}/>
+
 
 
            </Routes>

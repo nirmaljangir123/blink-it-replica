@@ -44,7 +44,8 @@
 .hoverlist:hover
 {
     cursor: pointer;
-    background-color: rgb(247, 196, 196);
+    background-color: rgb(195, 193, 193);
+    border-radius: 10px;
 }
 
 /* cartLiftSection  */
@@ -54,4 +55,30 @@
 .buttonborder{
  border: 2px solid green;
 
+}
+.sortcolor{
+    background-color: rgb(143, 232, 108);
+}
+.navbarcolor
+{
+    background-color: rgb(217, 215, 215);
+}
+.searchwidth
+{
+    /* width: 35%; */
+    border-radius: 15px;
+
+}
+.locationwidth
+{
+    /* width:300px; */
+    /* background-color: coral; */
+}
+.cartwidth
+{
+    width: 160px;
+}
+.navbarbgcolor
+{
+    background-color: rgb(245, 229, 229);
 }

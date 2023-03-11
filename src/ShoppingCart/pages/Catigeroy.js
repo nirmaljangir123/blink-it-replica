@@ -4,6 +4,7 @@ import CategoryNavbar from "../newcomponent/catogery/CatogeryNavbar"
 import CatogeryRightSection from "../newcomponent/catogery/CatogeryRightSection"
 import Cards from "../newcomponent/slider/Cards";
 import { useNavigate } from "react-router";
+import FilterList from "../newcomponent/catogery/CatigeryFilterNavbar";
 
 export const ClickCategoryShowData = () => {
     const nevigate = useNavigate();
@@ -12,8 +13,8 @@ export const ClickCategoryShowData = () => {
             <CategoryNavbar />
         </div>
         <div className="container-fluid">
-            <div className="row d-sm-block d-lg-flex p-4">
-                <div className="col-sm-12 col-lg-3 ">
+            <div className="row d-flex p-4">
+                <div className="col-3 ">
                     <div className="overflow">
                         {userDetils.map((item, key) => (
                             <div className="" key={item.id}>
@@ -22,11 +23,14 @@ export const ClickCategoryShowData = () => {
                         ))}
                     </div>
                 </div>
-                <div className="col-sm-12 col-lg-9">
-                    <div className="overflow" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center",justifyContent:"center" }}>
+                <div className="col-9">
+                    <div className="">
+                        <FilterList />
+                    </div>
+                    <div className="overflow pt-5" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "center" }}>
                         {userDetils.map((item, key) => (
-                            <div className="d-flex" onClick={() => nevigate("/")}>
-                                <CatogeryRightSection product={item} />
+                            <div className="d-flex" key={item.id}>
+                                <CatogeryRightSection product={item} handleClick={() => nevigate("/click-data")} />
                             </div>
                         ))
                         }

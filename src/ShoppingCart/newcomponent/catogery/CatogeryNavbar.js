@@ -10,7 +10,7 @@ const   CategoryNavbar=()=>{
     const navigate = useNavigate();
 
     return(<>
-            <Navbar bg="success" >
+            <Navbar bg="" className="navbarcolor" >
                 <Container>
                         <Nav className="d-md-block d-none d-lg-flex"> 
                            <Nav.Link href="#home" onClick={()=>navigate('/Navclickdata')}>Vegetables & Fruits</Nav.Link> 
