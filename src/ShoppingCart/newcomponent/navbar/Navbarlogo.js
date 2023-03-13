@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import InputGroup from 'react-bootstrap/InputGroup';
-
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -9,8 +8,21 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
 import '../newcomponent.css';
 import { AiOutlineSearch, AiOutlineAudio, AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
-const NavbarLogo = () => {
+
+// offcanvas bar
+import { useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import OffcanvasCart from "../offcanvas/Offcanvas";
+
+const NavbarLogo = ({ name, ...props }) => {
     const navigate = useNavigate();
+    // offcanvas
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <Navbar bg="" expand="" className="navbarbgcolor">
             <Container fluid>
@@ -18,7 +30,7 @@ const NavbarLogo = () => {
                     <Navbar.Brand href="#" className="logo d-lg-block d-none" onClick={() => navigate('/')}>blink<span className="it">it</span></Navbar.Brand>
                 </div>
                 <div className="locationwidth ">
-                    <div  className="d-flex w-sm-100 w-lg-25">
+                    <div className="d-flex w-sm-100 w-lg-25">
                         <div>
                             <p className="delevery">Delivery in 12 minutes</p>
                             <select className="custom-select w-50" id="inputGroupSelect01">
@@ -36,7 +48,7 @@ const NavbarLogo = () => {
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1"><h5><AiOutlineSearch /></h5></span>
                         </div>
-                       
+
                         <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1"><h5><AiOutlineAudio /></h5></span>
@@ -45,15 +57,19 @@ const NavbarLogo = () => {
                 </div>
                 <div>
                     <button type="button" class="btn btn-outline-primary d-xl-block d-none">Login</button>
-
                 </div>
-                <div className="cartwidth input-group-prepend " onClick={()=>navigate("/offcanvas-cart")}>
-                    <span className="input-group-text bg-success" id="basic-addon1"><h2><AiOutlineShoppingCart /></h2> <div className="px-2 py-0 ">
+                <div className="cartwidth input-group-prepend me-2" >
+                    <span className="input-group-text bg-success" id="basic-addon1"><h2 onClick={handleShow}><AiOutlineShoppingCart /></h2> <div className="px-2 py-0 ">
                         <p>items</p>
                         <p>₹</p>
                     </div></span>
                 </div>
+                <Offcanvas show={show} onHide={handleClose}>
+                    <OffcanvasCart/>
+                </Offcanvas>
+                
             </Container>
+
         </Navbar >
     );
 }

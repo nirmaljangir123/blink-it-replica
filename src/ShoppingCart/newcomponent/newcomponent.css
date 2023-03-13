@@ -82,3 +82,11 @@
 {
     background-color: rgb(245, 229, 229);
 }
+
+.fixed{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 23%;
+    
+  }

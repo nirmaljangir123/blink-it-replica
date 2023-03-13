@@ -5,7 +5,7 @@ import CatogeryRightSection from "../newcomponent/catogery/CatogeryRightSection"
 import Cards from "../newcomponent/slider/Cards";
 import { useNavigate } from "react-router";
 import FilterList from "../newcomponent/catogery/CatigeryFilterNavbar";
-
+import '../newcomponent/newcomponent.css'
 export const ClickCategoryShowData = () => {
     const nevigate = useNavigate();
     return (<>

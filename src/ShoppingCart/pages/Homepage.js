@@ -1,5 +1,4 @@
 import React from "react";
-import NavbarMain from "../component/Navbar";
 import { userDetils } from "../mockUp/Api";
 import { catagiryOffer } from "../mockUp/Catigery";
 import { OfferCard } from "../mockUp/offerApi";
@@ -13,6 +12,7 @@ const HomePage = () => {
     const nevigate=useNavigate();
     return (<>
         <div className="container-fluid">
+         
             {/* navbar  */}
             {/* <div className="row">
                 <NavbarMain /> 

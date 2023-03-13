@@ -4,8 +4,8 @@ import Card from 'react-bootstrap/Card';
 function Cards({product}) {
     return (<>
                 <div >
-                        <Card border="success" style={{ width: '16rem' }} className="carthover m-2 ">
-                            <Card.Img variant="top" src={product.image} className="border"/>
+                        <Card border="success" style={{ width: '16rem' }} className="carthover m-1 ">
+                            <Card.Img variant="top" src={product.image}  className="border"/>
                             <Card.Body >
                                 <Card.Text style={{ textDecoration: 'none',width:"100%",height:"50px",textAlign:"center" }}>{product.title}</Card.Text>
                                 <div className='d-flex justify-content-between'>
