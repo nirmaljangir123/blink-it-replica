@@ -24,7 +24,7 @@ export const ClickShowData = () => {
                 <div className="container">
                     <div className="" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "center" }}>
                         {userDetils.map((item, key) => (
-                            <div className="d-flex" onClick={() => nevigate("/")}>
+                            <div className="d-flex" onClick={() => nevigate("/click-data")}>
                                 <Cards product={item} />
                             </div>
                         ))

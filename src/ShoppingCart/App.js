@@ -17,6 +17,8 @@ import { ClickShowData } from "./pages/CardsClickData";
 import { ClickCategoryShowData } from "./pages/Catigeroy";
 import NavbarLogo from "./newcomponent/navbar/Navbarlogo";
 import OffcanvasCart from "./newcomponent/offcanvas/Offcanvas";
+import { OnClickSearch } from "./newcomponent/searchonclick/OnClick";
+import { MicroPhone } from "./newcomponent/searchonclick/MicroPhone";
 const App=()=>{
     return(
         <>
@@ -49,7 +51,8 @@ const App=()=>{
            <Route path="/click-data" element={<><ClickShowData/></>}/>
            <Route path="/catogery-data" element={<><ClickCategoryShowData/></>}/>
            <Route path="/offcanvas-cart" element={<><OffcanvasCart/></>}/>
-
+           <Route path="/search-click-data" element={<><OnClickSearch/></>} />
+           <Route path="/micro-phone" element={<><MicroPhone/></>}/>
 
 
            </Routes>

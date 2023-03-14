@@ -32,10 +32,9 @@ function OffcanvasCart() {
                         </div>
                     )
                 })}
-
                 <h4>Before you checkout</h4>
             </Offcanvas.Body>
-            
+
             <div className='fixed d-flex bg-success p-3 rounded justify-content-between'>
                 <div className='d-flex'>
                     <h3>6 items .</h3>
