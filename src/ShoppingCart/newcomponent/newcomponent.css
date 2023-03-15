@@ -4,6 +4,7 @@
 }
 .borderbox{
     border: 2px solid rgb(160, 158, 158);
+    background-color: rgb(209, 206, 206);
 }
 
 /* show data cart  */
@@ -76,7 +77,11 @@
 }
 .cartwidth
 {
-    width: 160px;
+    width:160px;
+}
+.cartwidth1
+{
+    background-color:rgb(7, 186, 7);
 }
 .navbarbgcolor
 {

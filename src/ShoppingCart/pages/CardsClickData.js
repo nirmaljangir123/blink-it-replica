@@ -22,7 +22,7 @@ export const ClickShowData = () => {
             <div className="row">
                 <h1>Dairy, Bread & Eggs</h1>
                 <div className="container">
-                    <div className="" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "center" }}>
+                    <div className="" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "flex-start" }}>
                         {userDetils.map((item, key) => (
                             <div className="d-flex" onClick={() => nevigate("/click-data")}>
                                 <Cards product={item} />

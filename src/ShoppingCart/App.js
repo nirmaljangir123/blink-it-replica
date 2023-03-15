@@ -19,6 +19,7 @@ import NavbarLogo from "./newcomponent/navbar/Navbarlogo";
 import OffcanvasCart from "./newcomponent/offcanvas/Offcanvas";
 import { OnClickSearch } from "./newcomponent/searchonclick/OnClick";
 import { MicroPhone } from "./newcomponent/searchonclick/MicroPhone";
+import { Login } from "./newcomponent/login/Login";
 const App=()=>{
     return(
         <>
@@ -53,6 +54,7 @@ const App=()=>{
            <Route path="/offcanvas-cart" element={<><OffcanvasCart/></>}/>
            <Route path="/search-click-data" element={<><OnClickSearch/></>} />
            <Route path="/micro-phone" element={<><MicroPhone/></>}/>
+            <Route path="/login" element={<><Login/></>}/>
 
 
            </Routes>
