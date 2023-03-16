@@ -3,8 +3,9 @@ import { userDetils } from '../../mockUp/Api';
 import AddButton from '../button/Button';
 import { AiFillCaretRight, } from "react-icons/ai";
 import '../newcomponent.css';
-function OffcanvasCart() {
-    console.log('userDetils', userDetils);
+
+const OffcaCart = () => {
+    // console.log('userDetils', userDetils);
     return (
         <>
             <Offcanvas.Header closeButton className='bg-primary'>
@@ -15,27 +16,34 @@ function OffcanvasCart() {
                 <p>6 items</p>
                 {userDetils.map((item) => {
                     return (
-                        <div className="d-flex border rounded m-2">
-                            <div className="">
-                                <img src={item.image} alt="no pic" width="80%" />
+                        <div className=" border rounded m-2 p-3">
+                            <div className="d-flex">
+                                <div className="">
+                                    <img src={item.image} alt="no pic" height={100} />
+                                </div>
+
+                                <div className=''>
+                                    <h5>{item.title}</h5>
+                                    <p>{item.weight}</p>
+                                </div>
+                            </div>
+                            <div className="d-flex justify-content-around">
+                                <div>
+                                    <h4>₹{item.price}</h4>
+                                </div>
+
+                                <div className="w-50 align-self-end">
+                                    <AddButton add="ADD" />
+                                </div>
                             </div>
 
-                            <div>
-                                <h5>{item.title}</h5>
-                                <p>{item.weight}</p>
-                                <h4>₹{item.price}</h4>
-                            </div>
-
-                            <div className="w-50 align-self-end">
-                                <AddButton />
-                            </div>
                         </div>
                     )
                 })}
                 <h4>Before you checkout</h4>
             </Offcanvas.Body>
 
-            <div className='fixed d-flex bg-success p-3 rounded justify-content-between'>
+            <div className='cartwidth1 sticky d-sm-block d-lg-flex p-3 rounded justify-content-between text-light   '>
                 <div className='d-flex'>
                     <h3>6 items .</h3>
                     <h4>₹ 576 </h4>
@@ -49,4 +57,4 @@ function OffcanvasCart() {
     );
 }
 
-export default OffcanvasCart;
+export default OffcaCart;

@@ -4,6 +4,7 @@ export const userDetils = [{
    price: 110,
    title: "Amul Blend Diced Cheese",
    weight: "100gm",
+   off:"15% off"
 },
 {
    id: 2,
@@ -11,6 +12,7 @@ export const userDetils = [{
    title: "Nested Milkmaid",
    weight: "300gm",
    price: "207",
+   off:"1% off"
 },
 {
    id: 3,
@@ -18,6 +20,7 @@ export const userDetils = [{
    title: "Amul Masti Crud",
    weight: "250gm",
    price: "307",
+   off:"85% off"
 },
 {
    id: 4,
@@ -25,6 +28,7 @@ export const userDetils = [{
    title: "Table White Eggs",
    weight: "500gm",
    price: "120",
+   off:"1000% off"
 },
 {
    id: 5,
@@ -32,6 +36,7 @@ export const userDetils = [{
    title: "Amul Fresh Milk",
    weight: "250gm",
    price: "40",
+   off:""
 }
 , {
    id: 6,
@@ -39,27 +44,30 @@ export const userDetils = [{
    price: 110,
    title: "Harvest Gold Sandwich Bread",
    weight: "500gm",
+   off:"55% off"
 },
 {
    id: 7,
    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/46256a.jpg",
    title: "Saras Gold Full Cream Fresh Milk",
    weight: "500gm",
-   price: "50",
+   price: "50 off",
+   off:""
 },
 {
    id: 8,
    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/125240a.jpg?ts=1654778894",
    title: "Amul Cheese Slices",
    weight: "250gm",
-   price: "78",
+   price: "78 off",
+   off:""
 },
 {
    id: 9,
    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/10492a.jpg",
    title: "Amul Mithai Mate Condensed Milk",
    weight: "500gm",
-   price: "120",
+   price: "120 off",
 },
 {
    id: 10,
@@ -67,6 +75,7 @@ export const userDetils = [{
    title: "Amul Fresh Milk",
    weight: "250gm",
    price: "40",
+   off:"15% off"
 },
 {
    id: 11,
@@ -74,6 +83,7 @@ export const userDetils = [{
    title: "Saras Gold FullCream Fresh Milk",
    weight: "500gm",
    price: "50",
+   off:""
 },
 {
    id: 12,   
@@ -81,6 +91,7 @@ export const userDetils = [{
    title: "Amul Cheese Slices",
    weight: "250gm",
    price: "78",
+   off:""
 },
 
 

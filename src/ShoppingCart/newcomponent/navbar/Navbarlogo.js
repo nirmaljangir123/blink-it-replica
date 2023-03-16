@@ -10,36 +10,41 @@ import { AiOutlineSearch, AiOutlineAudio, AiOutlineUser, AiOutlineShoppingCart, 
 import Modal from 'react-bootstrap/Modal';
 // offcanvas bar
 import { useState } from 'react';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import OffcanvasCart from "../offcanvas/Offcanvas";
 import { Location } from "../locatiob/Location";
 import { Login } from "../login/Login";
 import { Otp } from "../login/Otp";
 import Swal from "sweetalert2";
+import OffcaCart from "../offcanvas/Offcanvas";
 
 
 const NavbarLogo = ({ name, ...props }) => { 
 
     const navigate = useNavigate();
-    // offcanvas
+    // modal
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [data,setdata]=useState(true);
+    // offcanvas
+    const [canvas,setCanvas]=useState(false);
+    const handleCanvasShow=()=> setCanvas(true);
+    const handleCanvasClose=()=>setCanvas(false);
+
     const [input,setinput]=useState(true);
 
     const NextData=()=>{
       setinput(false);
       console.log("fuction set input",input)
     }
-    console.log("outer set input",input)
+    // console.log("outer set input",input)
     
     const SubmitData=()=>{
         setinput(true);
     }
-    console.log("handleclosed",handleClose)
+    // console.log("handleclosed",handleClose)
     
     const BackOnClick=()=>{
        setinput(true)
@@ -60,7 +65,7 @@ const NavbarLogo = ({ name, ...props }) => {
             <div className="container-fluid ">
                 <div className="row py-3 border justify-content-around">
                  <div className="col-lg-2">
-                    <Navbar.Brand href="#" className="logo d-lg-block d-none" onClick={() => navigate('/')}>blink<span className="it">it</span></Navbar.Brand>
+                    <Navbar.Brand href="#" className="logo d-lg-block d-none" onClick={() => navigate('/home')}>blink<span className="it">it</span></Navbar.Brand>
                 </div>
                 
                     <div className="locationwidth col-lg-3 col-sm-11 d-flex  ">
@@ -89,16 +94,19 @@ const NavbarLogo = ({ name, ...props }) => {
                 </div>
                 
                 
-                <div className="cartwidth col-lg-2 col-sm-11 p-2 " >
+                <div className="cartwidth col-lg-2 col-sm-11 p-2" onClick={handleCanvasShow}>
                     <span className="cartwidth1 input-group-text" id="basic-addon1"><h1 className="text-light"><AiOutlineShoppingCart /></h1> 
                     <div className="px-2 d-block align-self-center text-light">
                         <h5>My Cart</h5>
                         {/* <h5>₹</h5> */}
-                       
+                        
                     </div></span>   
                 </div>
             </div>
-        
+            <Offcanvas show={canvas} placement={"end"} onHide={handleCanvasClose}>
+          <OffcaCart/>
+      </Offcanvas>
+            
                              
             <Modal show={show} onHide={handleClose}>
               { 

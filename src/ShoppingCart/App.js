@@ -48,7 +48,7 @@ const App=()=>{
            <Route index element={<><PaanCorner/><Offer/><Catigery/><Cards/><Snaks/></>}/>
            <Route path="*" element={<Error/>}/> */} 
            <Route index element={<><HomePage/></>} />
-           <Route path="/" element={<><HomePage/></>}/>
+           <Route path="/home" element={<><HomePage/></>}/>
            <Route path="/click-data" element={<><ClickShowData/></>}/>
            <Route path="/catogery-data" element={<><ClickCategoryShowData/></>}/>
            <Route path="/offcanvas-cart" element={<><OffcanvasCart/></>}/>

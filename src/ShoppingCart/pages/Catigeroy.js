@@ -9,9 +9,8 @@ import '../newcomponent/newcomponent.css'
 export const ClickCategoryShowData = () => {
     const nevigate = useNavigate();
     return (<>
-        <div >
-            <CategoryNavbar />
-        </div>
+         <CategoryNavbar />
+     
         <div className="container-fluid">
             <div className="row d-flex p-4">
                 <div className="col-3 ">

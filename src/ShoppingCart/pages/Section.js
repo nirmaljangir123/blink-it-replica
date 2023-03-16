@@ -93,7 +93,7 @@ export const Section1 = () => {
                         </div>
 
                         <div className="w-25">
-                            <AddButton />
+                            <AddButton add="Add"/>
                         </div>
                         <div>
                             <h3 className="pt-5">Why shop from blinkit?</h3>

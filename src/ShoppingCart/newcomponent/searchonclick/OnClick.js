@@ -1,35 +1,52 @@
 import Catigery from "../../component/Catergiry"
 import { userDetils } from "../../mockUp/Api"
-import { AiFillEye, AiOutlineClear } from "react-icons/ai";
+import { AiFillEye, AiOutlineClear,AiOutlineRise,AiOutlineHistory } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-
+import './Search.css'
 
 export const OnClickSearch = () => {
     const navigate = useNavigate();
 
     return (<>
+            <div className="container">
+            <div className="d-flex">
+                <h2 className="px-4"><AiOutlineHistory/></h2>
+                <h4>Recent searches</h4>
+                
+            </div>
+            <div className="d-flex">
+                <h3 className="d-flex px-4"><AiOutlineRise/></h3>
+                <h4>Trending</h4>
+            </div>
+                <div className="" style={{ display: "flex", flexWrap: 'wrap', justifyContent: "flex-start" }}>
+                    {userDetils.map((item, key) => (
+                        <div className="search text-center border m-2 border border-danger rounded" >
+                        <img src={item.image} alt="no pic" width={70} />
+                            <h5 className="">{item.title}</h5>
+                            <h3 onClick={() => navigate("/click-data")}><AiFillEye /></h3>
+                        </div>
 
-        <div className="" style={{ display: "flex",flexWrap:"wrap", justifyContent:"flex-start",width:"500"}}>
+                    ))
+                    }
+                </div>
+            </div>
+        </>)
+
+}
+        {/* <div  style={{ display: "flex",flexWrap:"wrap",justifyContent:"flex-start", backgroundColor:"yellow"}}>
             {userDetils.map((item, key) => {
                 return (
-                    <div className=" border rounded m-1 text-center">
-                        <div className="">
+                    <div className="container">
+                        <div className="search d-block border rounded m-1 text-center">
                             <img src={item.image} alt="no pic" width={70} />
-                        </div>
-                        <div className=" w-100 ">
-                            <div className="h-100 w-75 " >
-                                <h5>{item.title}</h5>
-                            </div>
-                            <div className="d-flex ">
-                                <h1 onClick={() => navigate("/click-data")}><AiFillEye /></h1>
-                                <h1 onClick={() => { }}><AiOutlineClear /></h1>
-                            </div>
+                            <h5>{item.title}</h5>
                         </div>
                     </div>
                 )
             })
             }
-        </div>
-
-    </>)
-}
+        </div> */}
+ 
+{/* <div className="d-flex ">
+                                    <h5 onClick={() => navigate("/click-data")}><AiFillEye /></h5>
+                                    {/* <h1 onClick={() => { }}><AiOutlineClear /></h1> */}

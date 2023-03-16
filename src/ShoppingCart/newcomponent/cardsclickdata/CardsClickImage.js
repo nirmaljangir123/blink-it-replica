@@ -20,7 +20,7 @@ const CardsClickImage = () => {
 
                 <div className=" d-flex border justify-content-around " >
                     {
-                        ClickData.map((data, i) => {
+                        ClickData.map((data, i,key) => {
                             return (<>
                                 <div className="borderradious">
                                     <img key={data.id} src={data.image} onClick={() => handleClick(i)} alt="no pic" width="100px" />

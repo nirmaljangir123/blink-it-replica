@@ -7,13 +7,12 @@ import Cards from "../newcomponent/slider/Cards";
 import { OfferSlide } from "../newcomponent/slider/OfferSlide";
 import Slider from "../newcomponent/slider/WelcomeSlide";
 import { useNavigate } from "react-router";
-import { OfferCardSlide } from "../newcomponent/offer/OfferCards";
 
 const HomePage = () => {
-    const nevigate=useNavigate();
+    const nevigate = useNavigate();
     return (<>
         <div className="container-fluid">
-         
+
             {/* navbar  */}
             {/* <div className="row">
                 <NavbarMain /> 
@@ -26,13 +25,9 @@ const HomePage = () => {
 
             {/* corner slider */}
             <div className="row">
-                    <div>
-                        <Slider  />
-                    </div>
+                <Slider />
             </div>
-            <div>
-            <OfferCardSlide/>
-            </div>
+
 
             {/* offer cards */}
             <div className="container-fluid">
@@ -50,9 +45,9 @@ const HomePage = () => {
             <div className="row">
                 <h1>Categories</h1>
                 <div className="container">
-                    <div className="" style={{ display: "flex", flexWrap: 'wrap',textAlign:"center", justifyContent: "flex-start"}}>
+                    <div className="" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "flex-start" }}>
                         {catagiryOffer.map((item, key) => (
-                            <div className="borderbox m-2 rounded" onClick={()=>nevigate("/catogery-data")}>
+                            <div className="borderbox m-2 rounded" onClick={() => nevigate("/catogery-data")}>
                                 <CatigeryProduct product={item} />
                             </div>
                         ))
@@ -66,8 +61,8 @@ const HomePage = () => {
                 <div className="container">
                     <div className="" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "center" }}>
                         {userDetils.map((item, key) => (
-                            <div className="d-flex " onClick={()=>nevigate("/click-data")}>
-                                <Cards product={item} />
+                            <div className="d-flex " onClick={nevigate("/click-data")}>
+                                <Cards product={item} add="Add"/>
                             </div>
                         ))
                         }
