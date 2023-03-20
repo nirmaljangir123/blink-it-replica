@@ -1,4 +1,0 @@
-export const OfferCard=[{image:"https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=360/layout-engine/2022-11/Winter_FB-masthead-WEB.png"},
-{image:"https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=360/layout-engine/2022-10/gifting-store-Banner-Web.jpg"},
-{image:"https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=360/layout-engine/2022-11/Winter_HH-masthead-WEB.png"},
-{image:"https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=360/layout-engine/2022-11/Winter_HH-masthead-WEB.png"}]

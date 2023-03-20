@@ -1,10 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import InputGroup from 'react-bootstrap/InputGroup';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { useNavigate } from "react-router-dom";
 import '../newcomponent.css';
 import { AiOutlineSearch, AiOutlineAudio, AiOutlineUser, AiOutlineShoppingCart, AiFillPhone } from "react-icons/ai";
 import Modal from 'react-bootstrap/Modal';
@@ -12,18 +6,20 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
-import { Location } from "../locatiob/Location";
+import { Location } from "../location/Location";
 import { Login } from "../login/Login";
 import { Otp } from "../login/Otp";
 import Swal from "sweetalert2";
 import OffcaCart from "../offcanvas/Offcanvas";
+import './Navbar.css';
+import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { keyboard } from "@testing-library/user-event/dist/keyboard";
+// reducers value
+ const NavbarLogo = ({ name, ...props }) => { 
 
-
-const NavbarLogo = ({ name, ...props }) => { 
-
-    const navigate = useNavigate();
+    // navigate 
+    const navigate=useNavigate();
     // modal
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -33,8 +29,12 @@ const NavbarLogo = ({ name, ...props }) => {
     const handleCanvasShow=()=> setCanvas(true);
     const handleCanvasClose=()=>setCanvas(false);
 
-    const [input,setinput]=useState(true);
+    // reducers value we want to show
+    const count=useSelector((state)=>state.counter);
+    console.log("count value is====>",count);
 
+    // login
+    const [input,setinput]=useState(true);
     const NextData=()=>{
       setinput(false);
       console.log("fuction set input",input)
@@ -60,32 +60,36 @@ const NavbarLogo = ({ name, ...props }) => {
         });
 
         // show number
+
     }
     return (
             <div className="container-fluid ">
                 <div className="row py-3 border justify-content-around">
-                 <div className="col-lg-2">
-                    <Navbar.Brand href="#" className="logo d-lg-block d-none" onClick={() => navigate('/home')}>blink<span className="it">it</span></Navbar.Brand>
+                {/*Navbar logo */}
+                 <div className="col-lg-2" >
+                    <div href="#" className="logo d-lg-block d-none" onClick={()=>navigate('/')}>blink<span className="it">it</span></div>
                 </div>
-                
+
+                    {/* Navbar location  */}
                     <div className="locationwidth col-lg-3 col-sm-11 d-flex  ">
-                    <div>
+                        <div>
                         <Location/>
-                    </div>
+                        </div>
                       
                         <div className="input-group-prepend">
                             <span className="input-group-text d-xl-none d-block" id="basic-addon1"><h3><AiOutlineUser /></h3></span>
                         </div>
                     </div>
                 
+                {/* navbar Search bar */}
                 <div className="searchwidth col-sm-10 col-lg-4 align-self-center">
                     <div className="input-group">
-                        <div className="input-group-prepend">
+                        <div className="input-group-prepend" >
                             <span className="input-group-text" id="basic-addon1"><h5><AiOutlineSearch /></h5></span>
                         </div>
-                        <input type="text" className="form-control" placeholder="Search items" aria-label="Username" aria-describedby="basic-addon1" onClick={() => navigate('/search-click-data')}/>
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" id="basic-addon1"><h5><AiOutlineAudio onClick={() => navigate('/micro-phone')}/></h5></span>
+                        <input type="text" className="form-control" placeholder="Search items" aria-label="Username" aria-describedby="basic-addon1" onClick={()=>navigate('/search')}/>
+                        <div className="input-group-prepend"  onClick={()=>navigate('/micro-phone')}>
+                            <span className="input-group-text" id="basic-addon1" ><h5><AiOutlineAudio/></h5></span>
                         </div>
                     </div>
                 </div>
@@ -93,19 +97,21 @@ const NavbarLogo = ({ name, ...props }) => {
                     <button type="button" className="btn btn-outline-primary d-xl-block d-none" variant="primary" onClick={handleShow}>Login</button>
                 </div>
                 
-                
                 <div className="cartwidth col-lg-2 col-sm-11 p-2" onClick={handleCanvasShow}>
                     <span className="cartwidth1 input-group-text" id="basic-addon1"><h1 className="text-light"><AiOutlineShoppingCart /></h1> 
                     <div className="px-2 d-block align-self-center text-light">
-                        <h5>My Cart</h5>
-                        {/* <h5>₹</h5> */}
-                        
+                    {
+                        (count.length>0)?<h5>{count.length}items</h5>:<h5>My Cart</h5>
+                    }
+                    {
+                            (count.length>0)?<h5>₹{count.length}</h5>:<h5></h5>
+                    }                        
                     </div></span>   
                 </div>
             </div>
-            <Offcanvas show={canvas} placement={"end"} onHide={handleCanvasClose}>
-          <OffcaCart/>
-      </Offcanvas>
+            <Offcanvas show={canvas} placement={"end"} onHide={handleCanvasClose} className="w-25">
+                    <OffcaCart/>
+             </Offcanvas>
             
                              
             <Modal show={show} onHide={handleClose}>
@@ -120,6 +126,103 @@ const NavbarLogo = ({ name, ...props }) => {
 }
 
 export default NavbarLogo;
+
+
+// import React, { useState } from "react";
+// import { AiTwotoneThunderbolt } from "react-icons/ai";
+// import { useNavigate } from "react-router-dom";
+// import { add, Remove } from "../Reducers/UserReducer";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useSnackbar } from "notistack";
+// export const Card = ({ product }) => {
+//   const nevigate = useNavigate();
+//   const users = useSelector((state) => state.users);
+//   const dispatch = useDispatch();
+//   const [CardButton, setCardButton] = useState(true);
+//   const ChangeCardButton = () => {
+//     setCardButton(false);
+//   };
+//   // const  enqueueSnackbar  = useSnackbar();
+
+//   // const addToCart = () => {
+//   //   enqueueSnackbar(`Item added to your cart successfully`, {
+//   //     variant: "success",
+//   //     autoHideDuration: 3000,
+//   //   });
+//   // };
+
+//   // const removeFromCart = () => {
+//   //   enqueueSnackbar(`Item removed from your cart!`, {
+//   //     variant: "warning",
+//   //     autoHideDuration: 3000,
+//   //   });
+//   // };
+
+
+//   return (
+//     <>
+//       <div id="hovers" className=" mx-1 my-2 rounded p-2">
+//         <span className="discount fw-semibold w-lg-50 w-sm-25 my-2 rounded-end bg-primary text-light text-center">
+//           {product.discount}
+//         </span>
+//         <div className=" text-center ">
+//           <img
+//             onClick={() => nevigate("/details-of-item")}
+//             src={product.image}
+//             alt="ra"
+//             width={100}
+//             className="img-fluid"
+//           />
+//         </div>
+//         <span className="mins8 rounded px-1 "><AiTwotoneThunderbolt/>8 mins</span> <br />
+//         <span className="">{product.about}</span><br />
+//         <span className="text-secondary">{product.quantity}</span>
+//         <div className="col-12 mt-3 d-flex justify-content-around">
+//           <p className="align-self-center fw-semibold">₹{product.price}</p>
+
+//           {CardButton ? (
+//             <button
+//               className="btn btn-outline-success h-50 mb-3 fw-semibold"
+//               onClick={() => {
+//                 dispatch(add(product)), ChangeCardButton(),addToCart();
+//               }}
+//             >
+//               ADD
+//             </button>
+//           ) : (
+//             <div
+//               className="CartButton  btn-group h-25 "
+//               role="group"
+//               aria-label="Basic example"
+//             >
+//               <button
+//                 type="button"
+//                 className="lal btn text-light fw-semibold fs-5 "
+//                 onClick={()=>{dispatch(Remove(product.id)),removeFromCart()}}
+//               >
+//                 -
+//               </button>
+//               <button
+//                 type="button"
+//                 className="lal btn text-light fw-semibold fs-6 "
+//               >
+//                 {users.length}
+//               </button>
+//               <button
+//                 type="button"
+//                 onClick={() => dispatch(add(product))}
+//                 className="lal btn text-light fw-semibold fs-5 "
+//               >
+//                 +
+//               </button>
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
 
 
 

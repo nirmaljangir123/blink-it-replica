@@ -1,0 +1,12 @@
+.hovercart
+{
+    /* background-color:rgb(240, 223, 206); */
+}
+.hovercart:hover
+{
+    background-color: rgb(204, 247, 139);
+}
+.buttonwidth
+{
+    width: 30%;
+}

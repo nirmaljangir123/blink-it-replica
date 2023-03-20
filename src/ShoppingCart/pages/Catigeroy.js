@@ -2,12 +2,10 @@ import { userDetils } from "../mockUp/Api"
 import CatogeryLiftSection from "../newcomponent/catogery/CatogeryLiftSection"
 import CategoryNavbar from "../newcomponent/catogery/CatogeryNavbar"
 import CatogeryRightSection from "../newcomponent/catogery/CatogeryRightSection"
-import Cards from "../newcomponent/slider/Cards";
-import { useNavigate } from "react-router";
 import FilterList from "../newcomponent/catogery/CatigeryFilterNavbar";
-import '../newcomponent/newcomponent.css'
+import '../newcomponent/newcomponent.css';
+
 export const ClickCategoryShowData = () => {
-    const nevigate = useNavigate();
     return (<>
          <CategoryNavbar />
      
@@ -29,7 +27,7 @@ export const ClickCategoryShowData = () => {
                     <div className="overflow pt-5" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "center" }}>
                         {userDetils.map((item, key) => (
                             <div className="d-flex" key={item.id}>
-                                <CatogeryRightSection product={item} handleClick={() => nevigate("/click-data")} />
+                                <CatogeryRightSection product={item} add={"Add"} />
                             </div>
                         ))
                         }

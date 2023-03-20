@@ -1,22 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { userDetils } from "../mockUp/Api";
 import { catagiryOffer } from "../mockUp/Catigery";
 import { OfferCard } from "../mockUp/offerApi";
+import Cards from "../newcomponent/cards/Cards";
 import CatigeryProduct from "../newcomponent/catogery/Catigery";
-import Cards from "../newcomponent/slider/Cards";
 import { OfferSlide } from "../newcomponent/slider/OfferSlide";
 import Slider from "../newcomponent/slider/WelcomeSlide";
-import { useNavigate } from "react-router";
 
 const HomePage = () => {
-    const nevigate = useNavigate();
-    return (<>
-        <div className="container-fluid">
 
-            {/* navbar  */}
-            {/* <div className="row">
-                <NavbarMain /> 
-            </div> */}
+    return (<>
+        <div className="container-fluid text-center">
+
+           
 
             {/*new Navbar */}
             <div>
@@ -43,12 +39,12 @@ const HomePage = () => {
             </div>
             {/* Category */}
             <div className="row">
-                <h1>Categories</h1>
                 <div className="container">
-                    <div className="" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "flex-start" }}>
+                <h3>Categories</h3>
+                    <div className="" style={{ display: "flex", flexWrap: 'wrap', justifyContent:"" }}>
                         {catagiryOffer.map((item, key) => (
-                            <div className="borderbox m-2 rounded" onClick={() => nevigate("/catogery-data")}>
-                                <CatigeryProduct product={item} />
+                            <div className="borderbox m-2 rounded" key={item.id}>
+                                <CatigeryProduct product={item} onpath="/catogery-data"/>
                             </div>
                         ))
                         }
@@ -57,18 +53,19 @@ const HomePage = () => {
             </div>
             {/* Cards  */}
             <div className="row">
-                <h1>Dairy, Bread & Eggs</h1>
                 <div className="container">
+                <h3>Dairy, Bread & Eggs</h3>
                     <div className="" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "center" }}>
                         {userDetils.map((item, key) => (
-                            <div className="d-flex " onClick={nevigate("/click-data")}>
-                                <Cards product={item} add="Add"/>
+                            <div className="d-flex" key={item.id}>
+                                <Cards product={item} add="Add" onpath="/click-data" />
                             </div>
                         ))
                         }
                     </div>
                 </div>
             </div>
+           
         </div>
     </>)
 

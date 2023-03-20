@@ -36,7 +36,7 @@ export const userDetils = [{
    title: "Amul Fresh Milk",
    weight: "250gm",
    price: "40",
-   off:""
+   off:"Free"
 }
 , {
    id: 6,
@@ -52,7 +52,7 @@ export const userDetils = [{
    title: "Saras Gold Full Cream Fresh Milk",
    weight: "500gm",
    price: "50 off",
-   off:""
+   off:"Free"
 },
 {
    id: 8,
