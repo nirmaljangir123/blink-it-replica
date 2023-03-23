@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { userDetils } from '../../mockUp/Api';
 import AddButton from '../button/Button';
@@ -6,14 +7,25 @@ import '../newcomponent.css';
 import { useNavigate } from 'react-router';
 import Slider from '../slider/WelcomeSlide';
 // reducers
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Remove } from '../../slice/Reducer';
+import { Add, increment, decrement } from '../../slice/Reducer'
 
-const OffcaCart = () => {
+const OffcaCart = ({ totalprice }) => {
     // console.log('userDetils', userDetils);
     const navigate = useNavigate();
     const count = useSelector((state) => state.counter);
-    console.log("offcanvas in count----->", count);
-    const p=0;
+    const dispatch = useDispatch();
+    // console.log("offcanvas in count----->", count);
+
+    const Deliverycharge = 15;
+
+    const totaldiscount = (totalprice * 15 / 100).toFixed(2);
+    // console.log("total discount is ---->",totaldiscount);
+
+    const handlingCharge = totalprice - totaldiscount;
+    const totalallproductMrp = handlingCharge + Deliverycharge;
+
     return (
         <>
             <Offcanvas.Header closeButton className='bg-primary'>
@@ -21,63 +33,65 @@ const OffcaCart = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <h5>Delivery in 14 minutes</h5>
-                <p>{count.length} items in the cart</p>
-                
+                <p className='fs-5'> {count.length} items in the cart</p>
                 {
-                    count.map((product) => (
-                        <div className="my-4">
-                            <div className="row">
-                                <div className="col-3">
-                                    <img
-                                        src={product.image}
-                                        alt="apiData"
-                                        className="img-fluid img-thumbnail"
-                                    />
-                                </div>
-                                <div className="col-9 w-50">
-                                    {product.about} + Roach with Crushing....
-                                    <br />
-                                    <span className="text-secondary">1 pack</span>
-                                </div>
+                    count.map((items) => (
+                        <div className='d-flex border border light m-2'>
+                            <div>
+                                <img src={items.image} alt="no pic " width={150} />
                             </div>
-                            <div className="row mt-1 fw-bold">
-                                <div className="col-3 offset-3 ">₹{product.price}</div>
-                           
+                            <div className='align-self-center'>
+                                <h5>{items.title}</h5>
+                                <h6>{items.weight}</h6>
+
+                                {
+                                    count.some((item) => item.id === items.id) ?
+                                        (<div className="btn-group w-100" role="group" aria-label="Basic example">
+                                            <button type="button" className="btn btn-secondary" onClick={() => { dispatch(increment(items.id)) }}>+</button>
+                                            {count.map((item) => item.id === items.id ? (<button type="button" className="btn btn-warning" >{item.quantity}</button>) : (<></>))}
+                                            <button type="button" className="btn btn-secondary" onClick={() => { dispatch(decrement(items.id)) }}>-</button>
+                                        </div>) :
+                                        (
+                                            <div className='w-100'>
+                                                <button className="btn btn-success w-50 text-center" onClick={() => { dispatch(Add(items)) }} >Add to cart</button>
+                                            </div>)
+                                }
                             </div>
                         </div>
-                    )
-                    )
+
+                    ))
                 }
+
 
                 <h4>Before you checkout</h4>
                 <div>
                     {/* <ImageSlider images={images} /> */}
                     <Slider />
                 </div>
-               
+
+
                 <div>
                     <h5>All product Details & Price</h5>
                     <div className='d-block '>
                         <div className='d-flex justify-content-between'>
-                            <p>MRP</p>
-                            <p>{}</p>
-                            {console.log("total mrp ---->",totalMrp)}
+                            <h5>MRP</h5>
+                            <h5>₹ {totalprice}</h5>
                         </div>
                         <div className='d-flex justify-content-between' >
-                            <p>Product discount</p>
-                            <p>₹1944</p>
+                            <h5>Total discount</h5>
+                            <h5>₹ {totaldiscount}</h5>
                         </div>
                         <div className='d-flex justify-content-between'>
-                            <p>Handling charge</p>
-                            <p>₹1944</p>
+                            <h5>Handling charge </h5>
+                            <h5>₹{handlingCharge}</h5>
                         </div>
                         <div className='d-flex justify-content-between'>
-                            <p>Delivery charge</p>
-                            <p>₹1944</p>
+                            <h5>Delivery charge</h5>
+                            <h5>₹{Deliverycharge}</h5>
                         </div>
                         <div className='d-flex justify-content-between'>
-                            <h5>MRP</h5>
-                            <h5>₹1944</h5>
+                            <h5>Total MRP</h5>
+                            <h5>₹{totalallproductMrp}</h5>
                         </div>
                         <p>Coupons are only applicable on the Blinkit app</p>
                     </div>
@@ -87,8 +101,8 @@ const OffcaCart = () => {
 
             <div className='cartwidth1 sticky d-sm-block d-lg-flex p-3 rounded justify-content-between text-light' onClick={() => navigate("/login")}>
                 <div className='d-flex'>
-                    <h3>6 items .</h3>
-                    <h4>₹ 576 </h4>
+                    <h3>{count.length} items .</h3>
+                    <h4>₹ {totalallproductMrp.toFixed(0)} </h4>
                 </div>
                 <div className='d-flex'>
                     <h4>Proceed</h4>
@@ -101,3 +115,15 @@ const OffcaCart = () => {
 }
 
 export default OffcaCart;
+
+// count.some((item) => item.id === items.id) ?
+//                                         (<div className="btn-group w-100" role="group" aria-label="Basic example">
+//                                             <button type="button" className="btn btn-secondary" onClick={() => { dispatch(increment(items.id)) }}>+</button>
+//                                             <button type="button" className="btn btn-warning" >{items.quantity}</button>
+//                                             <button type="button" className="btn btn-secondary" onClick={() => { dispatch(decrement(items.id)) }}>-</button>
+//                                         </div>) :
+//                                         (
+//                                             <div className='w-100'>
+//                                                 <button className="btn btn-success w-50 text-center" onClick={() => { dispatch(removecart(items)) }} >Add to cart</button>
+//                                             </div>)
+

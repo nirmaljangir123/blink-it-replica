@@ -1,10 +1,12 @@
 export const userDetils = [{
    id: 1,
    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/439697a.jpg?ts=1644840288",
-   price: 110,
+   price: "110",
    title: "Amul Blend Diced Cheese",
    weight: "100gm",
-   off:"15% off"
+   off: "15",
+   count: 0,
+   quantity: 1,
 },
 {
    id: 2,
@@ -12,7 +14,9 @@ export const userDetils = [{
    title: "Nested Milkmaid",
    weight: "300gm",
    price: "207",
-   off:"1% off"
+   off: "1 ",
+   count: 0,
+   quantity: 1,
 },
 {
    id: 3,
@@ -20,7 +24,9 @@ export const userDetils = [{
    title: "Amul Masti Crud",
    weight: "250gm",
    price: "307",
-   off:"85% off"
+   off: "85",
+   count: 0,
+   quantity: 1,
 },
 {
    id: 4,
@@ -28,7 +34,9 @@ export const userDetils = [{
    title: "Table White Eggs",
    weight: "500gm",
    price: "120",
-   off:"1000% off"
+   off: "1000",
+   count: 0,
+   quantity: 1,
 },
 {
    id: 5,
@@ -36,38 +44,50 @@ export const userDetils = [{
    title: "Amul Fresh Milk",
    weight: "250gm",
    price: "40",
-   off:"Free"
+   off: "0",
+   count: 0,
+   quantity: 1,
 }
-, {
+   , {
    id: 6,
    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/95609a.jpg?ts=1625639870",
-   price: 110,
+   price: "110",
    title: "Harvest Gold Sandwich Bread",
    weight: "500gm",
-   off:"55% off"
+   off: "55",
+   count: 0,
+   quantity: 1,
 },
 {
    id: 7,
    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/46256a.jpg",
    title: "Saras Gold Full Cream Fresh Milk",
    weight: "500gm",
-   price: "50 off",
-   off:"Free"
+   price: "50",
+   off: "56",
+   count: 0,
+   quantity: 1,
 },
 {
    id: 8,
    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/125240a.jpg?ts=1654778894",
    title: "Amul Cheese Slices",
    weight: "250gm",
-   price: "78 off",
-   off:""
+   price: "78",
+   off: "1",
+   count: 0,
+   quantity: 1,
 },
 {
    id: 9,
    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/10492a.jpg",
    title: "Amul Mithai Mate Condensed Milk",
    weight: "500gm",
-   price: "120 off",
+   price: "452",
+   off: "3",
+   count: 0,
+   quantity: 1,
+
 },
 {
    id: 10,
@@ -75,7 +95,9 @@ export const userDetils = [{
    title: "Amul Fresh Milk",
    weight: "250gm",
    price: "40",
-   off:"15% off"
+   off: "15",
+   count: 0,
+   quantity: 1,
 },
 {
    id: 11,
@@ -83,15 +105,19 @@ export const userDetils = [{
    title: "Saras Gold FullCream Fresh Milk",
    weight: "500gm",
    price: "50",
-   off:""
+   off: ".2",
+   count: 0,
+   quantity: 1,
 },
 {
-   id: 12,   
+   id: 12,
    image: "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/125240a.jpg?ts=1654778894",
    title: "Amul Cheese Slices",
    weight: "250gm",
    price: "78",
-   off:""
+   off: "0",
+   count: 0,
+   quantity: 1,
 },
 
 

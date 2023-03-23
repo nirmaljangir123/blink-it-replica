@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../newcomponent.css';
 import { AiOutlineSearch, AiOutlineAudio, AiOutlineUser, AiOutlineShoppingCart, AiFillPhone } from "react-icons/ai";
 import Modal from 'react-bootstrap/Modal';
@@ -14,7 +14,8 @@ import OffcaCart from "../offcanvas/Offcanvas";
 import './Navbar.css';
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
+
+
 // reducers value
  const NavbarLogo = ({ name, ...props }) => { 
 
@@ -28,16 +29,21 @@ import { keyboard } from "@testing-library/user-event/dist/keyboard";
     const [canvas,setCanvas]=useState(false);
     const handleCanvasShow=()=> setCanvas(true);
     const handleCanvasClose=()=>setCanvas(false);
-
+    
     // reducers value we want to show
     const count=useSelector((state)=>state.counter);
-    console.log("count value is====>",count);
+    console.log("count quantity value is====>",count);
+    const [totalprice, settotalprice] = useState(null);
+
+    useEffect(() => {
+        settotalprice(()=>count.reduce((accumulator,currentValue)=>accumulator + Number(currentValue.price),0));
+    },[count])
 
     // login
     const [input,setinput]=useState(true);
     const NextData=()=>{
       setinput(false);
-      console.log("fuction set input",input)
+    //   console.log("fuction set input",input)
     }
     // console.log("outer set input",input)
     
@@ -80,6 +86,7 @@ import { keyboard } from "@testing-library/user-event/dist/keyboard";
                             <span className="input-group-text d-xl-none d-block" id="basic-addon1"><h3><AiOutlineUser /></h3></span>
                         </div>
                     </div>
+                    
                 
                 {/* navbar Search bar */}
                 <div className="searchwidth col-sm-10 col-lg-4 align-self-center">
@@ -101,17 +108,17 @@ import { keyboard } from "@testing-library/user-event/dist/keyboard";
                     <span className="cartwidth1 input-group-text" id="basic-addon1"><h1 className="text-light"><AiOutlineShoppingCart /></h1> 
                     <div className="px-2 d-block align-self-center text-light">
                     {
-                        (count.length>0)?<h5>{count.length}items</h5>:<h5>My Cart</h5>
+                        (count.length>0)?<h5>{count.length} items</h5>:<h5>My Cart</h5>
                     }
                     {
-                            (count.length>0)?<h5>₹{count.length}</h5>:<h5></h5>
+                            (count.length>0)?<h5>₹ {totalprice}</h5>:<h5></h5>
                     }                        
                     </div></span>   
                 </div>
             </div>
-            <Offcanvas show={canvas} placement={"end"} onHide={handleCanvasClose} className="w-25">
-                    <OffcaCart/>
-             </Offcanvas>
+            <Offcanvas show={canvas} placement={"end"} onHide={handleCanvasClose} className="">
+                    <OffcaCart totalprice={totalprice}/>
+             </Offcanvas >
             
                              
             <Modal show={show} onHide={handleClose}>

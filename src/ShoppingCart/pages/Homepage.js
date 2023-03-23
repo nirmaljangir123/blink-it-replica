@@ -57,8 +57,8 @@ const HomePage = () => {
                 <h3>Dairy, Bread & Eggs</h3>
                     <div className="" style={{ display: "flex", flexWrap: 'wrap', textAlign: "center", justifyContent: "center" }}>
                         {userDetils.map((item, key) => (
-                            <div className="d-flex" key={item.id}>
-                                <Cards product={item} add="Add" onpath="/click-data" />
+                            <div className="d-flex" >
+                                <Cards product={item} key={item.id} add="Add" onpath="/click-data" />
                             </div>
                         ))
                         }
